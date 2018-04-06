@@ -46,6 +46,5 @@ class AgentTicketUpdate5Test < TestCase
       value: '-'
     )
 
-
   end
 end
