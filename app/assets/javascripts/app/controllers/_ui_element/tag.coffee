@@ -19,9 +19,11 @@ class App.UiElement.tag
               possibleTags[item.value] = true
         },
       ).on('tokenfield:createtoken', (e) ->
-        if App.Config.get('tag_new') is false && !possibleTags[e.attrs.value]
+        if e.attrs.id is undefined || (App.Config.get('tag_new') is false && !possibleTags[e.attrs.value])
           e.preventDefault()
           return false
+
+        e.attrs.value = e.attrs.id
         true
       )
       $('#' + attribute.id ).parent().css('height', 'auto')

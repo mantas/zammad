@@ -660,7 +660,7 @@ condition example
                                                 tag_objects.id = tags.tag_object_id AND
                                                 tag_objects.name = 'Ticket' AND
                                                 tag_items.id = tags.tag_item_id AND
-                                                tag_items.name IN (?)
+                                                tag_items.id IN (?)
                                             )"
         bind_params.push selector['value'].count
         bind_params.push selector['value']
@@ -677,7 +677,7 @@ condition example
                             tag_objects.id = tags.tag_object_id AND
                             tag_objects.name = 'Ticket' AND
                             tag_items.id = tags.tag_item_id AND
-                            tag_items.name IN (?)
+                            tag_items.id IN (?)
                         )"
         bind_params.push selector['value']
       elsif selector['operator'] == 'contains all not' && attributes[0] == 'ticket' && attributes[1] == 'tags'
@@ -693,7 +693,7 @@ condition example
                           tag_objects.id = tags.tag_object_id AND
                           tag_objects.name = 'Ticket' AND
                           tag_items.id = tags.tag_item_id AND
-                          tag_items.name IN (?)
+                          tag_items.id IN (?)
                       )"
         bind_params.push selector['value']
       elsif selector['operator'] == 'contains one not' && attributes[0] == 'ticket' && attributes[1] == 'tags'
@@ -709,7 +709,7 @@ condition example
                       tag_objects.id = tags.tag_object_id AND
                       tag_objects.name = 'Ticket' AND
                       tag_items.id = tags.tag_item_id AND
-                      tag_items.name IN (?)
+                      tag_items.id IN (?)
                   ) BETWEEN 0 AND 0"
         bind_params.push selector['value']
       elsif selector['operator'] == 'before (absolute)'
